@@ -1,4 +1,5 @@
-from flask import Flask, request
+from flask import Flask, request, send_file, current_app
+import qrcode
 import requests
 import stripe
 
@@ -40,9 +41,13 @@ def create_price():
     except:
         return 'Error', 500
     
-@app.route('/qr')
-def generate_qrcode():
+@app.route('/qr/<priceid>')
+def generate_qrcode(priceid):
     args = request.args.to_dict()
     # stripe token must be present
-    payment_link = stripe.PaymentLink.create(line_items=[{"price": '{{PRICE_ID}}', "quantity": 1}])
-    return "<p> in GetQR </p>"
+    payment_link = stripe.PaymentLink.create(line_items=[{"price": priceid, "quantity": 1}])
+    payment_link_id = payment_link['id']
+    url = payment_link['url']
+    img = qrcode.make(url)
+    img.save(f'./static/{payment_link_id}.png')
+    return payment_link_id
