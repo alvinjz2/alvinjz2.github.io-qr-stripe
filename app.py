@@ -51,3 +51,9 @@ def generate_qrcode(priceid):
     img = qrcode.make(url)
     img.save(f'./static/{payment_link_id}.png')
     return payment_link_id
+
+
+@app.route('/view/<plink_id>')
+def view_qr(plink_id):
+    return current_app.send_static_file(f'{plink_id}.png')
+
