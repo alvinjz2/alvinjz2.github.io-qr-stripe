@@ -11,7 +11,10 @@ Install any requirements using
 ```
 pip install -r requirements.txt
 ```
-
+Create a .env file with your secret Stripe key. More info on this key can be found [here](https://stripe.com/docs/keys). The .env file should look something like this:
+```
+stripe_secret_key=sk_test_numbers
+```
 # Usage
 Start the Flask app by running 
 ```
