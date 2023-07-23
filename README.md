@@ -6,5 +6,5 @@ Clone the repo, and run the Flask app. Optionally, you can specify the debug fla
 
 An example:
 ```
-python -m flask run -- debug
+python -m flask run --debug
 ```
