@@ -20,7 +20,6 @@ stripe_secret_key=sk_test_numbers
 Start the Flask app by running 
 ```
 python -m flask run --debug
-
 ```
 
 # Supported Features
