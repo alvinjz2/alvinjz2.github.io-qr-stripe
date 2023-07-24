@@ -27,5 +27,5 @@ python -m flask run --debug
 To create payment links, you'll need to first create products. Then, create Prices for these products. Finally, payment links can be generated for prices. To see an overview of this process, see [this](https://stripe.com/docs/payment-links/api) page.
 - Products can be created with the /add-product endpoint
 - Prices can be created with the /create-price endpoint
-- Generate a QR code for a price with the /qr/<priceid> endpoint
-- View the generated QR codes with the /view/<priceid> endpoint
+- Generate a QR code for a price with the /qr/{priceid} endpoint
+- View the generated QR codes with the /view/{priceid} endpoint
